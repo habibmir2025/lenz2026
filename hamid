@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>فروشگاه عینک و لنز</title>
+
+  <meta name="description" content="فروشگاه عینک و لنز">
+
+  <style>
+    :root {
+      --primary: #173f5f;
+      --secondary: #e9f4f7;
+      --accent: #18a6a6;
+      --dark: #17212b;
+      --text: #4b5965;
+      --white: #ffffff;
+      --light: #f7fafb;
+      --border: #e3eaee;
+      --shadow: 0 15px 45px rgba(23, 63, 95, 0.10);
+      --radius: 22px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.9;
+      direction: rtl;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input,
+    textarea {
+      font-family: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 20px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 24px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .logo-icon::before,
+    .logo-icon::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      width: 17px;
+      height: 14px;
+      border: 3px solid var(--accent);
+      border-radius: 7px;
+    }
+
+    .logo-icon::before {
+      right: 0;
+    }
+
+    .logo-icon::after {
+      left: 0;
+    }
+
+    .logo-icon span {
+      position: absolute;
+      width: 9px;
+      height: 3px;
+      background: var(--accent);
+      top: 9px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 5px;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .main-nav a {
+      color: var(--dark);
+      font-size: 14px;
+      font-weight: 700;
+      transition: 0.25s;
+    }
+
+    .main-nav a:hover {
+      color: var(--accent);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-order {
+      background: var(--primary);
+      color: var(--white);
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 800;
+      transition: 0.25s;
+    }
+
+    .header-order:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: var(--secondary);
+      color: var(--primary);
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 22px;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      background:
+        radial-gradient(circle at 15% 20%, rgba(24, 166, 166, 0.12), transparent 30%),
+        linear-gradient(135deg, #f8fcfd, #eef7f8);
+      padding: 85px 0 70px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      background: var(--white);
+      color: var(--accent);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 7px 15px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 25px rgba(23, 63, 95, 0.06);
+    }
+
+    .hero h1 {
+      color: var(--primary);
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 1.35;
+      margin-bottom: 20px;
+      font-weight: 900;
+    }
+
+    .hero p {
+      max-width: 650px;
+      font-size: 17px;
+      color: var(--text);
+      margin-bottom: 25px;
+    }
+
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .hero-chip {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: 6px 13px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 13px;
+      font-size: 14px;
+      font-weight: 800;
+      border: 0;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(24, 166, 166, 0.22);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--primary);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-visual {
+      min-height: 390px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .glasses {
+      position: relative;
+      width: 330px;
+      height: 150px;
+    }
+
+    .glass {
+      position: absolute;
+      width: 120px;
+      height: 90px;
+      border: 10px solid var(--primary);
+      border-radius: 42px;
+      background: rgba(255,255,255,0.35);
+    }
+
+    .glass.right {
+      right: 0;
+    }
+
+    .glass.left {
+      left: 0;
+    }
+
+    .bridge {
+      position: absolute;
+      top: 37px;
+      left: 50%;
+      width: 70px;
+      height: 10px;
+      transform: translateX(-50%);
+      background: var(--primary);
+      border-radius: 20px;
+    }
+
+    .arm {
+      position: absolute;
+      top: 18px;
+      width: 90px;
+      height: 9px;
+      background: var(--primary);
+      border-radius: 10px;
+    }
+
+    .arm.right {
+      right: 108px;
+      transform: rotate(-10deg);
+      transform-origin: right;
+    }
+
+    .arm.left {
+      left: 108px;
+      transform: rotate(10deg);
+      transform-origin: left;
+    }
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================== */
+
+    section {
+      scroll-margin-top: 90px;
+    }
+
+    .section {
+      padding: 85px 0;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
+
+    .section-heading span {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .section-heading h2 {
+      color: var(--primary);
+      font-size: clamp(26px, 4vw, 40px);
+      margin: 8px 0 12px;
+      line-height: 1.5;
+    }
+
+    .section-heading p {
+      font-size: 15px;
+    }
+
+    /* =========================
+       FEATURES
+    ========================== */
+
+    .features {
+      background: var(--white);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .feature-card {
+      padding: 28px 20px;
+      text-align: center;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+      width: 55px;
+      height: 55px;
+      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--secondary);
+      color: var(--accent);
+      border-radius: 17px;
+      font-size: 24px;
+    }
+
+    .feature-card h3 {
+      color: var(--primary);
+      font-size: 17px;
+      margin-bottom: 7px;
+    }
+
+    .feature-card p {
+      font-size: 13px;
+    }
+
+    /* =========================
+       PRODUCTS
+    ========================== */
+
+    .eyewear-products {
+      background: var(--light);
+    }
+
+    .eyewear-product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .eyewear-product-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: 0.25s;
+    }
+
+    .eyewear-product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .eyewear-product-image {
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--secondary);
+      font-size: 70px;
+    }
+
+    .eyewear-product-content {
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .eyewear-product-content h3 {
+      color: var(--primary);
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .eyewear-product-content p {
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .eyewear-product-feature {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .eyewear-product-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .eyewear-product-price {
+      color: var(--primary);
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    .eyewear-whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      background: #25d366;
+      color: white;
+      border-radius: 11px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      border: 0;
+    }
+
+    /* =========================
+       ABOUT
+    ========================== */
+
+    .business-about {
+      background: var(--white);
+    }
+
+    .business-about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .business-about-visual {
+      min-height: 330px;
+      background: linear-gradient(135deg, var(--secondary), #ffffff);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 100px;
+      box-shadow: var(--shadow);
+    }
+
+    .business-about-content h2 {
+      color: var(--primary);
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .business-about-content p {
+      margin-bottom: 15px;
+    }
+
+    /* =========================
+       BENEFITS
+    ========================== */
+
+    .business-benefits {
+      background: var(--light);
+    }
+
+    .business-benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .business-benefit-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .business-benefit-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--secondary);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 23px;
+      margin-bottom: 15px;
+    }
+
+    .business-benefit-card h3 {
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    /* =========================
+       REVIEWS
+    ========================== */
+
+    .real-reviews {
+      background: var(--white);
+    }
+
+    .real-reviews-empty {
+      border: 1px dashed var(--border);
+      background: var(--light);
+      border-radius: var(--radius);
+      padding: 35px;
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .real-reviews-empty strong {
+      display: block;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    /* =========================
+       FAQ
+    ========================== */
+
+    .business-faq {
+      background: var(--light);
+    }
+
+    .business-faq-list {
+      max-width: 900px;
+      margin: auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    .business-faq-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 22px;
+    }
+
+    .business-faq-item summary {
+      color: var(--primary);
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .business-faq-item p {
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    /* =========================
+       CONTACT
+    ========================== */
+
+    .contact {
+      background: var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 35px;
+    }
+
+    .contact-info,
+    .contact-form-box {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 30px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-info h3,
+    .contact-form-box h3 {
+      color: var(--primary);
+      font-size: 23px;
+      margin-bottom: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 13px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-item:last-child {
+      border-bottom: 0;
+    }
+
+    .contact-item-icon {
+      min-width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+
+    .contact-item strong {
+      display: block;
+      color: var(--primary);
+      font-size: 13px;
+      margin-bottom: 3px;
+    }
+
+    .contact-item span,
+    .contact-item a {
+      font-size: 14px;
+      word-break: break-word;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 15px;
+    }
+
+    .form-group {
+      display: grid;
+      gap: 7px;
+    }
+
+    .form-group label {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      outline: none;
+      background: var(--light);
+      color: var(--dark);
+      font-size: 14px;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .form-group textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    .site-footer {
+      background: var(--dark);
+      color: #dce5eb;
+      padding-top: 55px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      gap: 35px;
+      padding-bottom: 40px;
+    }
+
+    .footer-brand h3 {
+      color: var(--white);
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 2;
+      color: #b9c8d2;
+      max-width: 360px;
+    }
+
+    .footer-column h4 {
+      color: var(--white);
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 9px;
+    }
+
+    .footer-links a,
+    .footer-contact a,
+    .footer-contact span {
+      color: #b9c8d2;
+      font-size: 13px;
+      transition: 0.2s;
+      line-height: 1.8;
+    }
+
+    .footer-links a:hover,
+    .footer-contact a:hover {
+      color: var(--white);
+    }
+
+    .footer-contact {
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .footer-socials a {
+      min-width: 42px;
+      height: 42px;
+      padding: 0 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 11px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #dce5eb;
+      font-size: 12px;
+      transition: 0.2s;
+    }
+
+    .footer-socials a:hover {
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.10);
+      padding: 18px 0;
+      text-align: center;
+      color: #9fb0bb;
+      font-size: 12px;
+    }
+
+    /* =========================
+       WHATSAPP FLOAT
+    ========================== */
+
+    .whatsapp-float {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      z-index: 999;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: #25d366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+      transition: 0.25s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.06);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media (max-width: 1000px) {
+      .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .eyewear-product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-grid,
+      .business-about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-chips,
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        min-height: 280px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .header-inner {
+        min-height: 68px;
+      }
+
+      .main-nav {
+        position: absolute;
+        top: 68px;
+        right: 16px;
+        left: 16px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .main-nav.active {
+        display: flex;
+      }
+
+      .main-nav a {
+        padding: 12px;
+        border-radius: 10px;
+      }
+
+      .main-nav a:hover {
+        background: var(--light);
+      }
+
+      .header-actions {
+        margin-right: auto;
+      }
+
+      .header-order {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .logo {
+        font-size: 16px;
+      }
+
+      .hero {
+        padding: 60px 0;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .glasses {
+        transform: scale(0.78);
+      }
+
+      .feature-grid,
+      .eyewear-product-grid,
+      .business-benefit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 65px 0;
+      }
+
+      .section-heading {
+        margin-bottom: 30px;
+      }
+
+      .business-about-visual {
+        min-height: 240px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .contact-info,
+      .contact-form-box {
+        padding: 22px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        width: min(100% - 22px, 1180px);
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+      }
+
+      .eyewear-product-footer {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .eyewear-whatsapp-btn {
+        width: 100%;
+      }
+
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        left: 14px;
+        bottom: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a href="#home" class="logo">
+        <span class="logo-icon"><span></span></span>
+        <span>فروشگاه عینک و لنز</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="#home">خانه</a>
+        <a href="#products">محصولات</a>
+        <a href="#about">درباره ما</a>
+        <a href="#faq">سؤالات متداول</a>
+        <a href="#contact">تماس</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#contact" class="header-order">ثبت سفارش</a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="باز کردن منو">
+          ☰
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <main id="home">
+
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div class="hero-content">
+
+          <span class="hero-badge">
+            فروشگاه تخصصی عینک و لنز
+          </span>
+
+          <h1>
+            انتخاب بهتر برای نگاهی زیباتر
+          </h1>
+
+          <p>
+            با انتخاب عینک یا لنز مناسب، هم ظاهر دلخواهتان را داشته باشید
+            و هم انتخابی متناسب با نیاز روزمره خود انجام دهید.
+          </p>
+
+          <div class="hero-chips">
+            <span class="hero-chip">عینک طبی</span>
+            <span class="hero-chip">عینک آفتابی</span>
+            <span class="hero-chip">لنز</span>
+            <span class="hero-chip">مشاوره انتخاب</span>
+          </div>
+
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">
+              درخواست مشاوره
+            </a>
+
+            <a href="#products" class="btn btn-secondary">
+              مشاهده خدمات
+            </a>
+          </div>
+
+        </div>
+
+        <div class="hero-visual">
+          <div class="glasses">
+            <div class="glass right"></div>
+            <div class="glass left"></div>
+            <div class="bridge"></div>
+            <div class="arm right"></div>
+            <div class="arm left"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================
+         FEATURES
+    ========================== -->
+
+    <section class="section features">
+      <div class="container">
+
+        <div class="section-heading">
+          <span>مزایای انتخاب</span>
+          <h2>برای انتخابی ساده‌تر و مطمئن‌تر</h2>
+          <p>
+            اطلاعات این بخش در صورت نیاز می‌تواند بعداً با ویژگی‌های واقعی کسب‌وکار تکمیل شود.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+
+          <article class="feature-card">
+            <div class="feature-icon">👓</div>
+            <h3>تنوع محصولات</h3>
+            <p>امکان معرفی انواع محصولات مرتبط با عینک و لنز.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">💬</div>
+            <h3>مشاوره انتخاب</h3>
+            <p>امکان دریافت اطلاعات و راهنمایی پیش از خرید.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">✨</div>
+            <h3>انتخاب متناسب</h3>
+            <p>انتخاب محصول بر اساس نیاز و سلیقه شما.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">📞</div>
+            <h3>ارتباط آسان</h3>
+            <p>راه‌های ارتباطی در بخش تماس سایت قرار گرفته است.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================
+         PRODUCTS
+    ========================== -->
+
+    <section class="section eyewear-products" id="products">
+      <div class="container">
+
+        <div class="section-heading">
+          <span>محصولات</span>
+          <h2>محصولات فروشگاه</h2>
+          <p>
+            برای مشاهده قیمت و دریافت اطلاعات بیشتر، از طریق دکمه سفارش با فروشگاه تماس بگیرید.
+          </p>
+        </div>
+
+        <div class="eyewear-product-grid">
+
+          <article class="eyewear-product-card">
+
+            <div class="eyewear-product-image">
+              👓
+            </div>
+
+            <div class="eyewear-product-content">
+
+              <h3>عینک طبی</h3>
+
+              <p>
+                انواع عینک طبی؛ اطلاعات مدل و مشخصات را می‌توانید هنگام سفارش دریافت کنید.
+              </p>
+
+              <div class="eyewear-product-feature">
+                مدل‌های متنوع
+              </div>
+
+              <div class="eyewear-product-footer">
+
+                <span class="eyewear-product-price">
+                  استعلام قیمت
+                </span>
+
+                <button
+                  class="eyewear-whatsapp-btn"
+                  type="button"
+                  onclick="orderProduct('عینک طبی')">
+                  سفارش این محصول
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="eyewear-product-card">
+
+            <div class="eyewear-product-image">
+              🕶️
+            </div>
+
+            <div class="eyewear-product-content">
+
+              <h3>عینک آفتابی</h3>
+
+              <p>
+                معرفی مدل‌های عینک آفتابی و دریافت اطلاعات و قیمت روز از فروشگاه.
+              </p>
+
+              <div class="eyewear-product-feature">
+                مدل‌های متنوع
+              </div>
+
+              <div class="eyewear-product-footer">
+
+                <span class="eyewear-product-price">
+                  استعلام قیمت
+                </span>
+
+                <button
+                  class="eyewear-whatsapp-btn"
+                  type="button"
+                  onclick="orderProduct('عینک آفتابی')">
+                  سفارش این محصول
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="eyewear-product-card">
+
+            <div class="eyewear-product-image">
+              👁️
+            </div>
+
+            <div class="eyewear-product-content">
+
+              <h3>لنز</h3>
+
+              <p>
+                انواع لنز و اطلاعات مربوط به محصولات قابل ارائه توسط فروشگاه.
+              </p>
+
+              <div class="eyewear-product-feature">
+                اطلاعات و قیمت روز
+              </div>
+
+              <div class="eyewear-product-footer">
+
+                <span class="eyewear-product-price">
+                  استعلام قیمت
+                </span>
+
+                <button
+                  class="eyewear-whatsapp-btn"
+                  type="button"
+                  onclick="orderProduct('لنز')">
+                  سفارش این محصول
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="section business-about" id="about">
+      <div class="container business-about-grid">
+
+        <div class="business-about-visual">
+          👓
+        </div>
+
+        <div class="business-about-content">
+
+          <span style="color:var(--accent);font-weight:900;font-size:13px;">
+            درباره ما
+          </span>
+
+          <h2>
+            تجربه‌ای ساده‌تر برای انتخاب عینک و لنز
+          </h2>
+
+          <p>
+            این بخش برای معرفی سابقه، تخصص و ویژگی‌های متمایز کسب‌وکار در نظر گرفته شده است.
+          </p>
+
+          <p>
+            <strong>سابقه:</strong>
+            اطلاعات سابقه کسب‌وکار در این قسمت وارد می‌شود.
+          </p>
+
+          <p>
+            <strong>تخصص:</strong>
+            اطلاعات تخصص و زمینه فعالیت در این قسمت وارد می‌شود.
+          </p>
+
+          <p>
+            <strong>ویژگی متمایز:</strong>
+            ویژگی متمایز واقعی کسب‌وکار در این قسمت وارد می‌شود.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================
+         BENEFITS
+    ========================== -->
+
+    <section class="section business-benefits">
+      <div class="container">
+
+        <div class="section-heading">
+          <span>مزیت‌های ما</span>
+          <h2>چرا این فروشگاه؟</h2>
+          <p>
+            این سه مورد جایگزین مزیت‌های واقعی کسب‌وکار خواهند شد.
+          </p>
+        </div>
+
+        <div class="business-benefit-grid">
+
+          <article class="business-benefit-card">
+            <div class="business-benefit-icon">✓</div>
+            <h3>مزیت ۱</h3>
+            <p>
+              توضیح مزیت اول کسب‌وکار در این قسمت قرار می‌گیرد.
+            </p>
+          </article>
+
+          <article class="business-benefit-card">
+            <div class="business-benefit-icon">★</div>
+            <h3>مزیت ۲</h3>
+            <p>
+              توضیح مزیت دوم کسب‌وکار در این قسمت قرار می‌گیرد.
+            </p>
+          </article>
+
+          <article class="business-benefit-card">
+            <div class="business-benefit-icon">◆</div>
+            <h3>مزیت ۳</h3>
+            <p>
+              توضیح مزیت سوم کسب‌وکار در این قسمت قرار می‌گیرد.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================
+         REVIEWS
+    ========================== -->
+
+    <section class="section real-reviews">
+      <div class="container">
+
+        <div class="section-heading">
+          <span>نظر مشتریان</span>
+          <h2>تجربه مشتریان</h2>
+        </div>
+
+        <div class="real-reviews-empty">
+
+          <strong>
+            نظرات واقعی مشتریان هنوز اضافه نشده است.
+          </strong>
+
+          <p>
+            پس از دریافت نظرات واقعی مشتریان، می‌توانید متن تأییدشده آن‌ها را در این بخش قرار دهید.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================
+         FAQ
+    ========================== -->
+
+    <section class="section business-faq" id="faq">
+      <div class="container">
+
+        <div class="section-heading">
+          <span>سؤالات متداول</span>
+          <h2>پرسش‌های پرتکرار</h2>
+          <p>
+            پاسخ‌های زیر عمومی هستند و در صورت نیاز می‌توانند با اطلاعات واقعی فروشگاه جایگزین شوند.
+          </p>
+        </div>
+
+        <div class="business-faq-list">
+
+          <details class="business-faq-item">
+            <summary>چگونه می‌توانم محصول سفارش بدهم؟</summary>
+            <p>
+              محصول موردنظر خود را انتخاب کرده و از طریق راه ارتباطی فروشگاه برای دریافت اطلاعات سفارش اقدام کنید.
+            </p>
+          </details>
+
+          <details class="business-faq-item">
+            <summary>چگونه از قیمت محصولات مطلع شوم؟</summary>
+            <p>
+              برای اطلاع از قیمت روز، از طریق شماره تماس یا واتساپ فروشگاه که در سایت قرار می‌گیرد، استعلام بگیرید.
+            </p>
+          </details>
+
+          <details class="business-faq-item">
+            <summary>آیا قبل از خرید امکان دریافت مشاوره وجود دارد؟</summary>
+            <p>
+              شرایط مشاوره را می‌توانید از طریق راه‌های ارتباطی فروشگاه استعلام کنید.
+            </p>
+          </details>
+
+          <details class="business-faq-item">
+            <summary>آیا همه محصولات همیشه موجود هستند؟</summary>
+            <p>
+              موجودی محصولات ممکن است تغییر کند؛ برای اطلاع از موجودی، پیش از سفارش استعلام بگیرید.
+            </p>
+          </details>
+
+          <details class="business-faq-item">
+            <summary>آیا امکان خرید آنلاین وجود دارد؟</summary>
+            <p>
+              در نسخه فعلی سایت سبد خرید و پرداخت آنلاین قرار داده نشده است.
+            </p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section class="section contact" id="contact">
+      <div class="container">
+
+        <div class="section-heading">
+          <span>ارتباط با ما</span>
+          <h2>تماس با فروشگاه</h2>
+          <p>
+            اطلاعات تماس واقعی فروشگاه را می‌توانید بعداً در همین بخش وارد کنید.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+
+          <div class="contact-info">
+
+            <h3>راه‌های ارتباطی</h3>
+
+            <div class="contact-item">
+              <div class="contact-item-icon">📍</div>
+              <div>
+                <strong>آدرس</strong>
+                <span>آدرس کامل فروشگاه در این قسمت وارد می‌شود.</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon">☎</div>
+              <div>
+                <strong>تلفن</strong>
+                <span>شماره تماس وارد نشده است.</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon">🕐</div>
+              <div>
+                <strong>ساعات کاری</strong>
+                <span>روزها و ساعات کاری وارد نشده است.</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon">◎</div>
+              <div>
+                <strong>شبکه‌های اجتماعی</strong>
+                <span>
+                  اطلاعات شبکه‌های اجتماعی وارد نشده است.
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="contact-form-box">
+
+            <h3>درخواست مشاوره</h3>
+
+            <form class="contact-form" id="contactForm">
+
+              <div class="form-group">
+                <label for="name">نام و نام خانوادگی</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="نام خود را وارد کنید">
+              </div>
+
+              <div class="form-group">
+                <label for="phone">شماره تماس</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="شماره تماس خود را وارد کنید"
+                  inputmode="tel">
+              </div>
+
+              <div class="form-group">
+                <label for="message">پیام</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="پیام خود را بنویسید"></textarea>
+              </div>
+
+              <button class="btn btn-primary" type="submit">
+                ارسال درخواست
+              </button>
+
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer class="site-footer">
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+
+          <h3>
+            [نام کسب‌وکار]
+          </h3>
+
+          <p>
+            [یک جمله معرفی کوتاه کسب‌وکار]
+          </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>دسترسی سریع</h4>
+
+          <div class="footer-links">
+            <a href="#home">خانه</a>
+            <a href="#products">محصولات</a>
+            <a href="#about">درباره ما</a>
+            <a href="#faq">سؤالات متداول</a>
+            <a href="#contact">تماس با ما</a>
+          </div>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>اطلاعات تماس</h4>
+
+          <div class="footer-contact">
+
+            <span>
+              آدرس: [آدرس کامل]
+            </span>
+
+            <!-- شماره واقعی بعداً در href قرار گیرد -->
+            <span>
+              تلفن: [شماره تماس]
+            </span>
+
+            <span>
+              ساعات کاری: [روزها و ساعات کاری]
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>شبکه‌های اجتماعی</h4>
+
+          <div class="footer-socials">
+
+            <!-- لینک‌ها بعداً با آدرس واقعی جایگزین شوند -->
+
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="اینستاگرام">
+              اینستاگرام
+            </a>
+
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="تلگرام">
+              تلگرام
+            </a>
+
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="واتساپ">
+              واتساپ
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        © 2026 [نام کسب‌وکار] — تمامی حقوق محفوظ است.
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       FLOATING WHATSAPP
+       لینک عمومی اشتراک واتساپ،
+       بدون شماره جعلی کسب‌وکار
+  ========================== -->
+
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%B1%D8%A7%DB%8C%20%D8%AF%D8%B1%DB%8C%D8%A7%D9%81%D8%AA%20%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA%20%D8%A8%D8%A7%20%D9%81%D8%B1%D9%88%D8%B4%DA%AF%D8%A7%D9%87%20%D8%B9%DB%8C%D9%86%DA%A9%20%D9%88%20%D9%84%D9%86%D8%B2%20%D8%AA%D9%85%D8%A7%D8%B3%20%D9%85%DB%8C%E2%AF%8C%DA%AF%DB%8C%D8%B1%D9%85."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="ارتباط در واتساپ">
+    ☎
+  </a>
+
+
+  <script>
+
+    /* =========================
+       MOBILE MENU
+    ========================== */
+
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
+
+    menuToggle.addEventListener("click", function () {
+      mainNav.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".main-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        mainNav.classList.remove("active");
+      });
+    });
+
+
+    /* =========================
+       PRODUCT ORDER
+    ========================== */
+
+    function orderProduct(productName) {
+
+      const message =
+        "سلام، برای سفارش «" +
+        productName +
+        "» اطلاعات و قیمت روز را می‌خواهم.";
+
+      /*
+        شماره واتساپ کسب‌وکار هنوز وارد نشده است.
+        بنابراین شماره جعلی قرار داده نشده.
+        پس از دریافت شماره واقعی می‌توان این لینک را به:
+        https://wa.me/شماره?text=...
+        تغییر داد.
+      */
+
+      const whatsappShareUrl =
+        "https://wa.me/?text=" +
+        encodeURIComponent(message);
+
+      window.open(
+        whatsappShareUrl,
+        "_blank",
+        "noopener,noreferrer"
+      );
+    }
+
+
+    /* =========================
+       CONTACT FORM
+       بدون بک‌اند؛ فقط اعتبارسنجی سمت مرورگر
+    ========================== */
+
+    const contactForm = document.getElementById("contactForm");
+
+    contactForm.addEventListener("submit", function (event) {
+
+      event.preventDefault();
+
+      const name =
+        document.getElementById("name").value.trim();
+
+      const phone =
+        document.getElementById("phone").value.trim();
+
+      const message =
+        document.getElementById("message").value.trim();
+
+      if (!name || !phone || !message) {
+        alert("لطفاً همه فیلدها را تکمیل کنید.");
+        return;
+      }
+
+      alert(
+        "درخواست شما ثبت شد. برای ارسال واقعی اطلاعات، اتصال فرم به یک سرویس یا بک‌اند لازم است."
+      );
+
+      contactForm.reset();
+    });
+
+
+    /* =========================
+       CLOSE MENU WITH ESC
+    ========================== */
+
+    document.addEventListener("keydown", function (event) {
+
+      if (event.key === "Escape") {
+        mainNav.classList.remove("active");
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
